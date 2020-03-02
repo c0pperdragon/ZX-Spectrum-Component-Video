@@ -1066,28 +1066,6 @@ $EndComp
 NoConn ~ 8950 6300
 NoConn ~ 8950 6200
 $Comp
-L Device:C_Small C26
-U 1 1 59EA3E26
-P 1200 5600
-F 0 "C26" H 1210 5670 50  0000 L CNN
-F 1 "100nF" V 1100 5500 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 1200 5600 50  0001 C CNN
-F 3 "" H 1200 5600 50  0000 C CNN
-	1    1200 5600
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:C_Small C27
-U 1 1 59EA3E2C
-P 1200 5900
-F 0 "C27" H 1210 5970 50  0000 L CNN
-F 1 "100nF" V 1100 5800 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 1200 5900 50  0001 C CNN
-F 3 "" H 1200 5900 50  0000 C CNN
-	1    1200 5900
-	0    1    1    0   
-$EndComp
-$Comp
 L components:LFSPXO024957 OSC1
 U 1 1 5A1C5597
 P 3750 8600
@@ -1434,7 +1412,6 @@ Wire Wire Line
 	10450 5150 10550 5150
 Connection ~ 10550 5150
 Connection ~ 10550 5350
-Connection ~ 10550 5550
 Wire Wire Line
 	10450 5550 10550 5550
 Wire Wire Line
@@ -1502,7 +1479,7 @@ Wire Wire Line
 Wire Wire Line
 	10550 5750 10450 5750
 Wire Wire Line
-	11400 6750 11400 5450
+	11400 6750 11400 5650
 Wire Wire Line
 	9700 4950 10250 4950
 Wire Wire Line
@@ -1518,29 +1495,11 @@ Wire Wire Line
 Wire Wire Line
 	9350 6150 10250 6150
 Wire Wire Line
-	1350 5600 1300 5600
-Wire Wire Line
-	1050 5600 1100 5600
-Wire Wire Line
-	1350 5900 1300 5900
-Wire Wire Line
-	1050 5900 1100 5900
-Connection ~ 1350 5300
-Connection ~ 1350 5600
-Connection ~ 1050 5300
-Connection ~ 1050 5600
-Wire Wire Line
 	13450 6050 13450 6200
 Wire Wire Line
 	13150 5400 13100 5400
 Wire Wire Line
-	13100 5400 13100 5550
-Wire Wire Line
-	13100 5550 12850 5550
-Wire Wire Line
 	10550 6550 10450 6550
-Wire Wire Line
-	10550 5550 10550 5750
 Wire Wire Line
 	2800 9100 2950 9100
 Wire Wire Line
@@ -1629,21 +1588,9 @@ Wire Wire Line
 Wire Wire Line
 	1300 6800 1350 6800
 Wire Wire Line
-	11400 5450 11900 5450
-Wire Wire Line
-	11700 5650 11900 5650
-Wire Wire Line
-	11700 5150 11700 5650
-Wire Wire Line
 	13150 5850 13000 5850
 Wire Wire Line
-	13000 5850 13000 5450
-Wire Wire Line
-	13000 5450 12850 5450
-Wire Wire Line
-	12850 5650 12900 5650
-Wire Wire Line
-	12900 5650 12900 4950
+	13000 5850 13000 5650
 Wire Wire Line
 	12900 4950 13150 4950
 Wire Wire Line
@@ -1830,8 +1777,6 @@ Wire Wire Line
 Wire Wire Line
 	10550 5350 10700 5350
 Wire Wire Line
-	10550 5550 11900 5550
-Wire Wire Line
 	10550 5750 10550 5950
 Wire Wire Line
 	10550 5950 10550 6150
@@ -1861,14 +1806,6 @@ Wire Wire Line
 	13200 1300 13550 1300
 Wire Wire Line
 	12250 1950 12250 2050
-Wire Wire Line
-	1350 5300 1350 5600
-Wire Wire Line
-	1350 5600 1350 5900
-Wire Wire Line
-	1050 5300 1050 5600
-Wire Wire Line
-	1050 5600 1050 5900
 Wire Wire Line
 	2950 9100 3300 9100
 Wire Wire Line
@@ -2425,23 +2362,23 @@ Wire Wire Line
 $Comp
 L Connector:Conn_01x01_Male J10
 U 1 1 5FC22E6A
-P 7950 9700
-F 0 "J10" V 8103 9613 50  0000 R CNN
-F 1 "Conn_01x01_Male" V 8012 9613 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 7950 9700 50  0001 C CNN
-F 3 "~" H 7950 9700 50  0001 C CNN
-	1    7950 9700
+P 7850 9950
+F 0 "J10" V 8003 9863 50  0000 R CNN
+F 1 "Conn_01x01_Male" V 7912 9863 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 7850 9950 50  0001 C CNN
+F 3 "~" H 7850 9950 50  0001 C CNN
+	1    7850 9950
 	0    -1   -1   0   
 $EndComp
 $Comp
 L Connector:Conn_01x01_Male J3
 U 1 1 5FC23046
-P 7850 9950
-F 0 "J3" V 8003 9863 50  0000 R CNN
-F 1 "Conn_01x01_Male" V 7912 9863 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 7850 9950 50  0001 C CNN
-F 3 "~" H 7850 9950 50  0001 C CNN
-	1    7850 9950
+P 7950 9700
+F 0 "J3" V 8103 9613 50  0000 R CNN
+F 1 "Conn_01x01_Male" V 8012 9613 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 7950 9700 50  0001 C CNN
+F 3 "~" H 7950 9700 50  0001 C CNN
+	1    7950 9700
 	0    -1   -1   0   
 $EndComp
 Text Label 7850 9100 3    60   ~ 0
@@ -2525,4 +2462,31 @@ Wire Wire Line
 	3700 7600 4250 7600
 Wire Wire Line
 	3700 7700 4250 7700
+Text Label 12950 4950 0    60   ~ 0
+PR2
+Text Label 13050 5850 0    60   ~ 0
+Y2
+Text Label 13100 5400 1    60   ~ 0
+PB2
+Wire Wire Line
+	13100 5400 13100 5550
+Wire Wire Line
+	12850 5550 13100 5550
+Connection ~ 10550 5550
+Wire Wire Line
+	11700 5150 11700 5450
+Wire Wire Line
+	10550 5550 10550 5750
+Wire Wire Line
+	11700 5450 11900 5450
+Wire Wire Line
+	11400 5650 11900 5650
+Wire Wire Line
+	10550 5550 11900 5550
+Wire Wire Line
+	12900 4950 12900 5450
+Wire Wire Line
+	12900 5450 12850 5450
+Wire Wire Line
+	12850 5650 13000 5650
 $EndSCHEMATC

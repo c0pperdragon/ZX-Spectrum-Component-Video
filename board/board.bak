@@ -631,12 +631,6 @@ F 3 "" H 3650 6700 50  0000 C CNN
 $EndComp
 Text Label 3400 6700 2    60   ~ 0
 3V3B
-NoConn ~ 4250 4800
-NoConn ~ 4250 5000
-NoConn ~ 4250 5200
-NoConn ~ 4250 5300
-NoConn ~ 4250 5900
-NoConn ~ 4250 6000
 NoConn ~ 4250 6100
 NoConn ~ 4250 6200
 NoConn ~ 4250 6300
@@ -1440,7 +1434,6 @@ Wire Wire Line
 	10450 5150 10550 5150
 Connection ~ 10550 5150
 Connection ~ 10550 5350
-Connection ~ 10550 5550
 Wire Wire Line
 	10450 5550 10550 5550
 Wire Wire Line
@@ -1508,7 +1501,7 @@ Wire Wire Line
 Wire Wire Line
 	10550 5750 10450 5750
 Wire Wire Line
-	11400 6750 11400 5450
+	11400 6750 11400 5650
 Wire Wire Line
 	9700 4950 10250 4950
 Wire Wire Line
@@ -1540,13 +1533,7 @@ Wire Wire Line
 Wire Wire Line
 	13150 5400 13100 5400
 Wire Wire Line
-	13100 5400 13100 5550
-Wire Wire Line
-	13100 5550 12850 5550
-Wire Wire Line
 	10550 6550 10450 6550
-Wire Wire Line
-	10550 5550 10550 5750
 Wire Wire Line
 	2800 9100 2950 9100
 Wire Wire Line
@@ -1635,21 +1622,9 @@ Wire Wire Line
 Wire Wire Line
 	1300 6800 1350 6800
 Wire Wire Line
-	11400 5450 11900 5450
-Wire Wire Line
-	11700 5650 11900 5650
-Wire Wire Line
-	11700 5150 11700 5650
-Wire Wire Line
 	13150 5850 13000 5850
 Wire Wire Line
-	13000 5850 13000 5450
-Wire Wire Line
-	13000 5450 12850 5450
-Wire Wire Line
-	12850 5650 12900 5650
-Wire Wire Line
-	12900 5650 12900 4950
+	13000 5850 13000 5650
 Wire Wire Line
 	12900 4950 13150 4950
 Wire Wire Line
@@ -1835,8 +1810,6 @@ Wire Wire Line
 	10550 5150 10550 5350
 Wire Wire Line
 	10550 5350 10700 5350
-Wire Wire Line
-	10550 5550 11900 5550
 Wire Wire Line
 	10550 5750 10550 5950
 Wire Wire Line
@@ -2260,30 +2233,18 @@ Text Label 3700 7400 2    60   ~ 0
 D0_3V
 Text Label 3700 7300 2    60   ~ 0
 D1_3V
-Text Label 7050 3700 1    60   ~ 0
+Text Label 3700 6000 2    60   ~ 0
 D2_3V
-Text Label 7150 3700 1    60   ~ 0
+Text Label 3700 5900 2    60   ~ 0
 D3_3V
-Text Label 7250 3700 1    60   ~ 0
+Text Label 3700 5300 2    60   ~ 0
 D4_3V
-Text Label 7650 3700 1    60   ~ 0
+Text Label 3700 5200 2    60   ~ 0
 D5_3V
-Text Label 7750 3700 1    60   ~ 0
+Text Label 3700 5000 2    60   ~ 0
 D6_3V
-Text Label 7850 3700 1    60   ~ 0
+Text Label 3700 4800 2    60   ~ 0
 D7_3V
-Wire Wire Line
-	7050 3700 7050 3900
-Wire Wire Line
-	7150 3700 7150 3900
-Wire Wire Line
-	7250 3700 7250 3900
-Wire Wire Line
-	7650 3700 7650 3900
-Wire Wire Line
-	7750 3700 7750 3900
-Wire Wire Line
-	7850 3700 7850 3900
 NoConn ~ 8150 3900
 NoConn ~ 7950 3900
 NoConn ~ 7550 3900
@@ -2443,23 +2404,23 @@ Wire Wire Line
 $Comp
 L Connector:Conn_01x01_Male J10
 U 1 1 5FC22E6A
-P 7950 9700
-F 0 "J10" V 8103 9613 50  0000 R CNN
-F 1 "Conn_01x01_Male" V 8012 9613 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 7950 9700 50  0001 C CNN
-F 3 "~" H 7950 9700 50  0001 C CNN
-	1    7950 9700
+P 7850 9950
+F 0 "J10" V 8003 9863 50  0000 R CNN
+F 1 "Conn_01x01_Male" V 7912 9863 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 7850 9950 50  0001 C CNN
+F 3 "~" H 7850 9950 50  0001 C CNN
+	1    7850 9950
 	0    -1   -1   0   
 $EndComp
 $Comp
 L Connector:Conn_01x01_Male J3
 U 1 1 5FC23046
-P 7850 9950
-F 0 "J3" V 8003 9863 50  0000 R CNN
-F 1 "Conn_01x01_Male" V 7912 9863 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 7850 9950 50  0001 C CNN
-F 3 "~" H 7850 9950 50  0001 C CNN
-	1    7850 9950
+P 7950 9700
+F 0 "J3" V 8103 9613 50  0000 R CNN
+F 1 "Conn_01x01_Male" V 8012 9613 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 7950 9700 50  0001 C CNN
+F 3 "~" H 7950 9700 50  0001 C CNN
+	1    7950 9700
 	0    -1   -1   0   
 $EndComp
 Text Label 7850 9100 3    60   ~ 0
@@ -2515,4 +2476,59 @@ NoConn ~ 5750 3900
 NoConn ~ 5950 3900
 NoConn ~ 6150 3900
 NoConn ~ 6250 3900
+NoConn ~ 7050 3900
+NoConn ~ 7150 3900
+NoConn ~ 7250 3900
+NoConn ~ 7650 3900
+NoConn ~ 7750 3900
+NoConn ~ 7850 3900
+Wire Wire Line
+	3700 4800 4250 4800
+Wire Wire Line
+	3700 5000 4250 5000
+Wire Wire Line
+	3700 5200 4250 5200
+Wire Wire Line
+	3700 5300 4250 5300
+Wire Wire Line
+	3700 5900 4250 5900
+Wire Wire Line
+	3700 6000 4250 6000
+Wire Wire Line
+	3700 7300 4250 7300
+Wire Wire Line
+	3700 7400 4250 7400
+Wire Wire Line
+	3700 7500 4250 7500
+Wire Wire Line
+	3700 7600 4250 7600
+Wire Wire Line
+	3700 7700 4250 7700
+Text Label 12950 4950 0    60   ~ 0
+PR2
+Text Label 13050 5850 0    60   ~ 0
+Y2
+Text Label 13100 5400 1    60   ~ 0
+PB2
+Wire Wire Line
+	13100 5400 13100 5550
+Wire Wire Line
+	12850 5550 13100 5550
+Connection ~ 10550 5550
+Wire Wire Line
+	11700 5150 11700 5450
+Wire Wire Line
+	10550 5550 10550 5750
+Wire Wire Line
+	11700 5450 11900 5450
+Wire Wire Line
+	11400 5650 11900 5650
+Wire Wire Line
+	10550 5550 11900 5550
+Wire Wire Line
+	12900 4950 12900 5450
+Wire Wire Line
+	12900 5450 12850 5450
+Wire Wire Line
+	12850 5650 13000 5650
 $EndSCHEMATC
