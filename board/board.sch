@@ -1875,17 +1875,6 @@ F 3 "" H 8350 2200 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Conn_01x11_Male J1
-U 1 1 5E65371C
-P 6600 800
-F 0 "J1" V 6435 776 50  0000 C CNN
-F 1 "Conn_01x11_Male" V 6526 776 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x11_P2.54mm_Vertical" H 6600 800 50  0001 C CNN
-F 3 "~" H 6600 800 50  0001 C CNN
-	1    6600 800 
-	0    1    1    0   
-$EndComp
-$Comp
 L power:GND #PWR0102
 U 1 1 5E75C6CA
 P 5550 1750
@@ -2489,4 +2478,26 @@ Wire Wire Line
 	12900 5450 12850 5450
 Wire Wire Line
 	12850 5650 13000 5650
+$Comp
+L Connector:Conn_01x05_Male J11
+U 1 1 5E618FCE
+P 6900 800
+F 0 "J11" V 6700 750 50  0000 L CNN
+F 1 "Conn_01x05_Male" V 6800 550 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 6900 800 50  0001 C CNN
+F 3 "~" H 6900 800 50  0001 C CNN
+	1    6900 800 
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:Conn_01x06_Male J1
+U 1 1 5E619200
+P 6400 800
+F 0 "J1" V 6200 750 50  0000 L CNN
+F 1 "Conn_01x06_Male" V 6300 350 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 6400 800 50  0001 C CNN
+F 3 "~" H 6400 800 50  0001 C CNN
+	1    6400 800 
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
