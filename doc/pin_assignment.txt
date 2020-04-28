@@ -1,0 +1,39 @@
+Pin assignments for the ZX-Spectrum-Component-Video mod
+
+
+ULA sniffing lines
+Signal       ULA pin      MAX 10 pin       
+WR           2            141
+IO           33           140
+CAS          1            139
+D0           18           138
+D1           21           137
+D2           22           124
+D3           25           125
+D4           27           117
+D5           29           116
+D6           30           114
+D7           31           112
+
+
+In-board wiring of the MAX 10 
+                         MAX 10 pin
+Y(5) = SYNC              46
+Y(4)                     47
+Y(3)                     48
+Y(2)                     49
+Y(1)                     50
+Y(0)                     51
+PB(4)                    52
+PB(3)                    53
+PB(2)                    59
+PB(1)                    60
+PB(0)                    61
+PR(4)                    63
+PR(3)                    65
+PR(2)                    67
+PR(1)                    69
+PR(0)                    70
+
+25Mhz Reference clock:   25
+
