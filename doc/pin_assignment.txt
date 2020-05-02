@@ -9,12 +9,17 @@ CAS          1            139
 D0           18           138
 D1           21           137
 D2           22           124
-D3           25           125
+D3           25           123
 D4           27           117
 D5           29           116
 D6           30           114
 D7           31           112
 
+
+Configuration
+Function      Jumper        MAX 10 pin   
+LINE DOUBLE   J10           31
+RGB/YPbPr     J3            32
 
 In-board wiring of the MAX 10 
                          MAX 10 pin
