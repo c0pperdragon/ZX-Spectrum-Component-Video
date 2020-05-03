@@ -71,5 +71,5 @@ the ULA socket pins (see pin_assignment.txt for more details).
 Signals D0 to D7 can be taken from various vias through which the data signals are 
 sent on their way between the ULA and the RAM chips. 
 The exact locations may differ with board revision. You may have to probe around with a multimeter
-to find a conventiently located via for each signal. In the case that you can not 
+to find a conveniently located via for each signal. In the case that you can not 
 find any accessible via, you can also solder your wire directly to the RAM chip (but only as last ressort).  
