@@ -306,8 +306,8 @@ begin
 		);
 		constant zxpalette_rgb : T_zxpalette := (
 			-- black -- blue  -- red   -- purple - green -- cyan  -- yellow - white
-			16#0000#,16#0000#,16#0000#,16#0000#,16#0000#,16#0000#,16#0000#,16#6739#,   -- dim
-			16#0000#,16#0000#,16#0000#,16#0000#,16#0000#,16#0000#,16#0000#,16#7fff#    -- bright
+			16#0000#,16#1300#,16#145a#,16#1b1a#,16#6080#,16#6320#,16#64b9#,16#6739#,   -- dim
+			16#0000#,16#17e0#,16#187f#,16#23ff#,16#7ca0#,16#7fe0#,16#7cdf#,16#7fff#    -- bright
 		);
 		
 		constant w: integer := 448;    -- (64.00 microseconds -> 15.625kHz)
@@ -339,7 +339,11 @@ begin
 		variable tmp_col:std_logic_vector(15 downto 0);
 		variable outofsync : integer range -1048576 to 1048575;		
 		variable palette : T_zxpalette;
-	
+		
+		variable LEFTBORDER_PREPARE : std_logic_vector(2 downto 0);
+		variable RIGHTBORDER_PREPARE : std_logic_vector(2 downto 0);
+		variable LEFTBORDER : std_logic_vector(2 downto 0);
+		variable RIGHTBORDER : std_logic_vector(2 downto 0);
 	begin
 		
 		if rising_edge(CLK14) then
@@ -410,7 +414,11 @@ begin
 				end if;				
 			elsif cx>=hstart-borderthickness and cx<hstart+256+borderthickness 
 			  and cy>=vstart-borderthickness and cy<vstart+vheight+borderthickness then
-				out_ypbpr := palette(to_integer(unsigned(BORDER)));
+			  if cx<hstart+128 then
+					out_ypbpr := palette(to_integer(unsigned(LEFTBORDER)));
+				else
+					out_ypbpr := palette(to_integer(unsigned(RIGHTBORDER)));
+				end if;
 			end if;				
 													
 			-- detect input screen start or half screen end and bring output to sync
@@ -446,8 +454,14 @@ begin
 			
 			-- progress horizontal and vertical counters
 			if cxhi<2*w-1 then
+				if cxhi/2=hstart-borderthickness then LEFTBORDER_PREPARE := BORDER; end if;
+				if cxhi/2=hstart+256 then RIGHTBORDER_PREPARE := BORDER; end if;
+			
 				cxhi := cxhi+1;
 			else
+				LEFTBORDER := LEFTBORDER_PREPARE;
+				RIGHTBORDER := RIGHTBORDER_PREPARE;			
+				
 				cxhi:=0;
 				if cy<h-1 then 
 					cy:=cy+1;
