@@ -28,10 +28,25 @@ original analog signals are still being produced by the video output circuit.
 
 ## Images
 ![alt text](doc/board.jpg "Installed mod board")
+![alt text](doc/trrsadapter.jpg "Adapter cable")
 ![alt text](doc/professor.jpg "Screenshoot")
 ![alt text](doc/willy.jpg "Screenshot detail")
 
-## Installation
+## Configuration switches
+
+You can switch to 576p (enhanced definition TV - double vertical resolution) by grounding the pin J10.
+Likewise you can switch to RGsB output by grounding pin J3.
+Both can be either be done with a jumper (permenant setting) or an optional external switch. You can
+do that in whatever way you like - maybe there is even a solution that does not require to do modify the
+case.
+
+## Video adapter
+
+The mod uses a small TRRS jack to provide the component video signal. For use with standard cabling,
+you will need an adapter to break out the 3 lines to individual RCA jacks. Take care to use a cable
+that has the common ground on the sleeve of the tip-ring-ring-sleeve plug.
+
+## Installation details
 
 Remove an existing RF modulator completely and remove all the solder from the mounting holes.
 Put the mod boad in place of the modulator and solder the two mounting pins. These pins will also
@@ -58,11 +73,3 @@ sent on their way between the ULA and the RAM chips.
 The exact locations may differ with board revision. You may have to probe around with a multimeter
 to find a conventiently located via for each signal. In the case that you can not 
 find any accessible VIA, you can also solder your wire directly to the RAM chip (but only as last ressort).  
-
-## Configuration switches
-
-You can switch to 576p (enhanced definition TV - double vertical resolution) by grounding the pin J10.
-Likewise you can switch to RGsB output by grounding pin J3.
-Both can be either be done with a jumper (permenant setting) or an optional external switch. You can
-do that in whatever way you like - maybe there is even a solution that does not require to do modify the
-case.
