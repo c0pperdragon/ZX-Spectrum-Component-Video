@@ -4,7 +4,7 @@ Pin assignments for the ZX-Spectrum-Component-Video mod
 ULA sniffing lines
 Signal       ULA pin      MAX 10 pin       
 WR           2            141
-IO           33           140
+IOREQ        33           140
 CAS          1            139
 D0           18           138
 D1           21           137
