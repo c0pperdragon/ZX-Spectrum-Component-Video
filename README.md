@@ -3,12 +3,12 @@ Component video (YPbPr) output for the ZX Spectrum computer
 
 ## General
 
-The ZX Spectrum in its original form produces a radio frequency signal that an be fed into a analog TV. The quality of this
-signal is very bad, but this be improved by a simple modification that will make the ZX spectrum output a composite video
-signal instead. While this is actually better it is nowhere near good. To bring the video quality to the next level,
+The ZX Spectrum in its original form produces a radio frequency signal that can be fed into an analog TV. The quality of this
+signal is very poor, but this can be improved by a simple modification that will make the ZX Spectrum output a composite video
+signal instead. While this is actually better, it is nowhere near good. To bring the video quality to the next level,
 this modification will produce a component video signal (YPbPr) that should be as good as an analog signal can possible get.
 This video signal can be used either directly with a TV that has a YPbPr input, or it can be passed through a dedicated upscaler device
-("Framemeister", "OSSC" or something like that) before displaying on an HDMI screen.
+("Framemeister", "OSSC", etc.) before displaying on an HDMI screen.
 
 This hardware modification is a more compact version of the solution that uses an A-Video board with seperate level shifters.
 It tries to solve various shortcomings of https://github.com/c0pperdragon/A-VideoBoard/tree/master/zxspectrummod :
@@ -17,12 +17,25 @@ It tries to solve various shortcomings of https://github.com/c0pperdragon/A-Vide
 - No need to modify the case of the ZX Spectrum
 - No need to remove any components besides the RF modulator.
 
+## Theory of operation
+
+The mod board passively listens to various digital data lines through which the ULA communicates with the rest of the 
+main board - specifically the signals CAS,RW,IOREQ and the data bus. This information is processed by the FPGA 
+to figure out what image the ULA intends to display. The FPGA drives a simple 3-channel digital-to-analog converter built from
+resistors to produce the 3 output voltages of the YPbPr signal.
+Because the main board runs with 5 volt logic levels and the FPGA can only work with 3.3 volts, a voltage regulator and
+two input level shifter ICs are necessary (on the bottom side of the mod board). 
+
 ## Video output possibilities
 
 - 288p (default) or 576p
 - YPbPr (default) or RGsB
 
 Output modes can be selected by jumpers or optional switches.
+
+The color palette I am using has slightly softened colors. The original monochromatic colors are just too hard on
+my eyes especially when viewed on a modern display.
+I took the platte from [https://lospec.com/palette-list/zx-spectrum] and in my opinion this really looks great.
 
 ## Drawbacks
 
@@ -44,7 +57,7 @@ original analog signals are still being produced by the video output circuit.
 
 You can switch to 576p (enhanced definition TV - double vertical resolution) by bridging the jumper J10.
 Likewise you can switch to RGsB output by briding the jumper J3.
-Both can be either be done with a jumper (permenant setting) or an optional external switch. You can
+Both can either be done with a jumper (permenant setting) or an optional external switch. You can
 do that in whatever way you like - maybe there is even a solution that does not require to modify the
 case.
 
@@ -53,8 +66,7 @@ case.
 The mod uses a small TRRS jack to provide the component video signal. For use with standard cabling,
 you will need an adapter to break out the 3 lines to individual RCA jacks. Take care to use a cable
 that has the common ground on the sleeve of the tip-ring-ring-sleeve plug.
-One possible ready-made product would be this one:
-[https://www.delock.de/produkte/G_62499/technische_details.htm]
+One possible ready-made product would be: [https://www.delock.de/produkte/G_62499/technische_details.htm]
 
 ## Installation details
 
