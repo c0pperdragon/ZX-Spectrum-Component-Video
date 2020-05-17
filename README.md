@@ -1,7 +1,14 @@
 # ZX-Spectrum-Component-Video
 Component video (YPbPr) output for the ZX Spectrum computer 
 
-## Objective
+## General
+
+The ZX Spectrum in its original form produces a radio frequency signal that an be fed into a analog TV. The quality of this
+signal is very bad, but this be improved by a simple modification that will make the ZX spectrum output a composite video
+signal instead. While this is actually better it is nowhere near good. To bring the video quality to the next level,
+this modification will produce a component video signal (YPbPr) that should be as good as an analog signal can possible get.
+This video signal can be used either directly with a TV that has a YPbPr input, or it can be passed through a dedicated upscaler device
+("Framemeister", "OSSC" or something like that) before displaying on an HDMI screen.
 
 This hardware modification is a more compact version of the solution that uses an A-Video board with seperate level shifters.
 It tries to solve various shortcomings of https://github.com/c0pperdragon/A-VideoBoard/tree/master/zxspectrummod :
@@ -27,15 +34,16 @@ If you need composite video additionally you can wire up an extra connector, as 
 original analog signals are still being produced by the video output circuit.
 
 ## Images
-![alt text](doc/board.jpg "Installed mod board")
+![alt text](doc/board.jpg "The mod board itself")
+![alt text](doc/install.jpg "Installation")
 ![alt text](doc/trrsadapter.jpg "Adapter cable")
 ![alt text](doc/professor.jpg "Screenshoot")
 ![alt text](doc/willy.jpg "Screenshot detail")
 
-## Configuration switches
+## Configuration jumpers
 
-You can switch to 576p (enhanced definition TV - double vertical resolution) by grounding the pin J10.
-Likewise you can switch to RGsB output by grounding pin J3.
+You can switch to 576p (enhanced definition TV - double vertical resolution) by bridging the jumper J10.
+Likewise you can switch to RGsB output by briding the jumper J3.
 Both can be either be done with a jumper (permenant setting) or an optional external switch. You can
 do that in whatever way you like - maybe there is even a solution that does not require to modify the
 case.
@@ -45,6 +53,8 @@ case.
 The mod uses a small TRRS jack to provide the component video signal. For use with standard cabling,
 you will need an adapter to break out the 3 lines to individual RCA jacks. Take care to use a cable
 that has the common ground on the sleeve of the tip-ring-ring-sleeve plug.
+One possible ready-made product would be this one:
+[https://www.delock.de/produkte/G_62499/technische_details.htm]
 
 ## Installation details
 
