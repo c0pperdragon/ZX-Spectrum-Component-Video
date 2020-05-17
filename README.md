@@ -66,7 +66,7 @@ case.
 The mod uses a small TRRS jack to provide the component video signal. For use with standard cabling,
 you will need an adapter to break out the 3 lines to individual RCA jacks. Take care to use a cable
 that has the common ground on the sleeve of the tip-ring-ring-sleeve plug.
-One possible ready-made product would be: [https://www.delock.de/produkte/G_62499/technische_details.htm]
+One possible ready-made product would be: [https://www.delock.de/produkte/S_62499/merkmale.html]
 
 ## Installation details
 
