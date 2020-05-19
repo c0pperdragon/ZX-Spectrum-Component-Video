@@ -95,3 +95,10 @@ sent on their way between the ULA and the RAM chips.
 The exact locations may differ with board revision. You may have to probe around with a multimeter
 to find a conveniently located via for each signal. In the case that you can not 
 find any accessible via, you can also solder your wire directly to the RAM chip (but only as last ressort).  
+
+## Assembled boards
+
+I do not expect too much demand for this device, so I will probably be able to provide a 
+hand-assembled board for anyone who wants one. Prize may be somewhere in the 50€ range (plus shipping
+and optional adapter cable). In this case drop me an email at reinhard.grafl (at) aon.at or
+add a question to the issues section.
