@@ -49,7 +49,6 @@ original analog signals are still being produced by the video output circuit.
 ## Images
 ![alt text](doc/board.jpg "The mod board itself")
 ![alt text](doc/install.jpg "Installation")
-![alt text](doc/trrsadapter.jpg "Adapter cable")
 ![alt text](doc/professor.jpg "Screenshoot")
 ![alt text](doc/willy.jpg "Screenshot detail")
 
