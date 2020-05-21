@@ -388,10 +388,58 @@ void sendline(byte* attributes, byte* pixels)
     );  
 }
 
+void sendio(byte value)
+{
+    PORTC = B11001111;
+    PORTD = value;
+    PORTC = B11001111;
+    PORTC = B11001111;
+    PORTC = B11001111;
+    PORTC = B11001111;
+    PORTC = B11001111;
+    PORTC = B11001111;
+    PORTC = B11001111;
+    PORTC = B11111111;  
+}
+
+void illegalio(byte value)
+{
+    PORTC = B11011111;
+    PORTD = value;
+    PORTC = B11011111;
+    PORTC = B11011111;
+    PORTC = B11011111;
+    PORTC = B11011111;
+    PORTC = B11011111;
+    PORTC = B11011111;
+    PORTC = B11011111;
+    
+    PORTC = B11111111;    
+    PORTC = B11111111;    
+    PORTC = B11111111;    
+    PORTC = B11111111;    
+    PORTC = B11111111;    
+    
+    PORTC = B11101111;
+    PORTD = value;
+    PORTC = B11101111;
+    PORTC = B11101111;
+    PORTC = B11101111;
+    PORTC = B11101111;
+    PORTC = B11101111;
+    PORTC = B11101111;
+    PORTC = B11101111;
+    
+    PORTC = B11111111;    
+    PORTC = B11111111;    
+    PORTC = B11111111;    
+    PORTC = B11111111;    
+    PORTC = B11111111;    
+    PORTC = B11111111;    
+}
 
 void loop()
 {
-    hsync();
     int y;
 
     // generate signals for a whole frame
@@ -405,8 +453,15 @@ void loop()
         hsync();
         sendline(attributes+((y/8)*32), pixels2+((y-96)*32));
     }
-    for (y=192; y<312; y++)
-    {
-        hsync();
-    }
+    for (y=192; y<198; y++) { hsync(); }
+    sendio(7);
+    for (y=198; y<202; y++) { hsync(); }
+    sendio(0);
+    for (y=202; y<204; y++) { hsync(); }
+    illegalio(2);
+    for (y=204; y<302; y++) { hsync(); }
+    sendio(7);
+    for (y=302; y<306; y++) { hsync(); }
+    sendio(0);
+    for (y=306; y<312; y++) { hsync(); }
 }
