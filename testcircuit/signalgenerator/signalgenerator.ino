@@ -321,6 +321,8 @@ void hsync()
 
 void sendline(byte* attributes, byte* pixels)
 {
+    hsync();
+    
     __asm__ __volatile__ 
     (
         "ldi r22,247                 ;     prepare value to assert CAS \n" 
@@ -388,6 +390,67 @@ void sendline(byte* attributes, byte* pixels)
     );  
 }
 
+void blankline()
+{
+  hsync();
+
+    __asm__ __volatile__ 
+    (       
+#define PASS_ONE_BLOCK \
+        "nop                ; 0    \n" \
+        "nop                ; 1    \n" \
+        "nop                ; 2    \n" \
+        "nop                ; 3    \n" \
+        "nop                ; 4    \n" \
+        "nop                ; 5    \n" \
+        "nop                ; 6    \n" \
+        "nop                ; 7    \n" \
+        "nop                ; 8    \n" \
+        "nop                ; 9    \n" \
+        "nop                ; 10    \n" \
+        "nop                ; 11    \n" \
+        "nop                ; 12    \n" \
+        "nop                ; 13    \n" \
+        "nop                ; 14    \n" \
+        "nop                ; 15    \n" \
+        "nop                ; 16    \n" \
+        "nop                ; 17    \n" 
+        
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+        PASS_ONE_BLOCK
+    );  
+}
+
 void sendio(byte value)
 {
     PORTC = B11001111;
@@ -445,23 +508,29 @@ void loop()
     // generate signals for a whole frame
     for (y=0; y<96; y++)
     {
-        hsync();
         sendline(attributes+((y/8)*32), pixels1+(y*32));
     }
     for (y=96; y<192; y++)
     {
-        hsync();
         sendline(attributes+((y/8)*32), pixels2+((y-96)*32));
+        if (y==190) { sendio(7); }   // set grey background during last image line
+        if (y==191) { sendio(0); }   // set black background after the last image line
     }
-    for (y=192; y<198; y++) { hsync(); }
-    sendio(7);
-    for (y=198; y<202; y++) { hsync(); }
+    for (y=192; y<200; y++) 
+    {   
+        blankline();  
+        if (y==192) { sendio(2); }   // red color for line 193
+        if (y==193) { sendio(3); }   // purple color for line 193
+        if (y==194) { sendio(1); }   // blue color for line 193
+        if (y==195) { sendio(0); }   // black for line 195 onwards
+    }
+    
+    hsync();   // line 200 has a middle transition to yellow
+    sendio(6);
+    hsync();   // line 201 has a middle transition to black
     sendio(0);
-    for (y=202; y<204; y++) { hsync(); }
-    illegalio(2);
-    for (y=204; y<302; y++) { hsync(); }
-    sendio(7);
-    for (y=302; y<306; y++) { hsync(); }
-    sendio(0);
-    for (y=306; y<312; y++) { hsync(); }
+    
+    for (y=202; y<312; y++) { blankline(); }   
+    
+    illegalio(7);  // try illegal sequence to set background color gray
 }

@@ -340,10 +340,8 @@ begin
 		variable outofsync : integer range -1048576 to 1048575;		
 		variable palette : T_zxpalette;
 		
-		variable LEFTBORDER_PREPARE : std_logic_vector(2 downto 0);
-		variable RIGHTBORDER_PREPARE : std_logic_vector(2 downto 0);
-		variable LEFTBORDER : std_logic_vector(2 downto 0);
-		variable RIGHTBORDER : std_logic_vector(2 downto 0);
+		variable VISIBLEBORDER_PREPARE : std_logic_vector(2 downto 0);
+		variable VISIBLEBORDER : std_logic_vector(2 downto 0);
 	begin
 		
 		if rising_edge(CLK14) then
@@ -414,27 +412,23 @@ begin
 				end if;				
 			elsif cx>=hstart-borderthickness and cx<hstart+256+borderthickness 
 			  and cy>=vstart-borderthickness and cy<vstart+vheight+borderthickness then
-			  if cx<hstart+128 then
-					out_ypbpr := palette(to_integer(unsigned(LEFTBORDER)));
-				else
-					out_ypbpr := palette(to_integer(unsigned(RIGHTBORDER)));
-				end if;
+				out_ypbpr := palette(to_integer(unsigned(VISIBLEBORDER)));
 			end if;				
 													
 			-- detect input screen start or half screen end and bring output to sync
 			if f1 /= f2 then
 				if f1='1' then   -- start of screen
-					outofsync := (vstart-2)*w*2 + 2*hstart;
+					outofsync := (vstart-1)*w*2 + 2*hstart;
 				else             -- start of second half of screen
-					outofsync := (vstart-2+h/2)*w*2 + 2*hstart;					
+					outofsync := (vstart-1+h/2)*w*2 + 2*hstart;					
 				end if;
 				outofsync := outofsync - cxhi - cy*w*2;   -- how many 14Mhz clocks are needed to catch up?
 				
 				if outofsync<-w*2*3 or outofsync>w*2*3 then   -- when more than 3 lines out of sync, force immediately
 					if f1='1' then
-						cy := vstart-2;
+						cy := vstart-1;
 					else
-						cy := vstart-2+h/2;
+						cy := vstart-1+h/2;
 					end if;
 					cxhi := 2*hstart;
 					out_speedadjustment := 0;
@@ -454,13 +448,10 @@ begin
 			
 			-- progress horizontal and vertical counters
 			if cxhi<2*w-1 then
-				if cxhi/2=hstart-borderthickness then LEFTBORDER_PREPARE := BORDER; end if;
-				if cxhi/2=hstart+256 then RIGHTBORDER_PREPARE := BORDER; end if;
-			
 				cxhi := cxhi+1;
 			else
-				LEFTBORDER := LEFTBORDER_PREPARE;
-				RIGHTBORDER := RIGHTBORDER_PREPARE;			
+				VISIBLEBORDER := VISIBLEBORDER_PREPARE;
+				VISIBLEBORDER_PREPARE := BORDER;			
 				
 				cxhi:=0;
 				if cy<h-1 then 
