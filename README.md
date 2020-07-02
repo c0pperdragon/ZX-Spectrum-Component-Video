@@ -48,6 +48,7 @@ original analog signals are still being produced by the video output circuit.
 
 ## Images
 ![alt text](doc/board.jpg "The mod board itself")
+![alt text](doc/backside.jpg "Backside")
 ![alt text](doc/install.jpg "Installation")
 ![alt text](doc/professor.jpg "Screenshoot")
 ![alt text](doc/willy.jpg "Screenshot detail")
@@ -97,7 +98,6 @@ find any accessible via, you can also solder your wire directly to the RAM chip 
 
 ## Assembled boards
 
-I do not expect too much demand for this device, so I will probably be able to provide a 
-hand-assembled board for anyone who wants one. Prize may be somewhere in the 50€ range (plus shipping
-and optional adapter cable). In this case drop me an email at reinhard.grafl (at) aon.at or
-add a question to the issues section.
+I have provided all my assembled boards to videogameperfection.com for sale. 
+Please have a look at their website first, and if everything is out of stock, you
+can try to contact me directly at at reinhard.grafl (at) aon.at.
