@@ -313,9 +313,9 @@ begin
 		constant w: integer := 448;    -- (64.00 microseconds -> 15.625kHz)
 		constant h: integer := 312;      -- (19968 microseconds -> 50.0801Hz)
 		constant vheight: integer := 192;
-		constant vstart:  integer := 74;
-		constant hstart: integer := 128;
-		constant borderthickness: integer := 32;
+		constant vstart:  integer := 72;
+		constant hstart: integer := 127;
+		constant borderthickness: integer := 48;
 	
 		variable cxhi: integer range 0 to 1023 := 0;
 		variable cx: integer range 0 to 511 := 0;
@@ -358,8 +358,8 @@ begin
 			-- generate video signal for low-res mode
 			if SDTVMODE='1' then  
 				-- simple vsync pattern 
-				if cy>=3 and cy<6 then                                  -- vsync
-					if cxhi<2*w-66 then
+				if cy>=0 and cy<3 then                                  -- vsync
+					if cxhi<w-33 or (cxhi>=w and cxhi<2*w-33) then
 						out_sync := 0;
 					end if;
 				else
@@ -376,7 +376,7 @@ begin
 			-- generate video signal for high-res mode
 			else
 				-- compute highres sync pulses
-				if cy>=3 and cy<6 then			  
+				if cy>=0 and cy<3 then			  
 					if cxhi<w-32 or (cxhi>=w and cxhi<2*w-32) then            -- two EDTV vsyncs per lowres line
 						out_sync := 0;
 					end if;
