@@ -12,6 +12,9 @@ entity ULA2YPbPr is
 		Pb: out std_logic_vector(4 downto 0);
 		Pr: out std_logic_vector(4 downto 0);
 
+		-- for the case that ULA clock needs to be overriden from outside
+		AUXCLOCK: out std_logic;
+
 		-- sniffing ULA pins
 		D : in std_logic_vector(7 downto 0);
 		CAS : in std_logic;
@@ -23,7 +26,7 @@ entity ULA2YPbPr is
 		YPBPRMODE : in std_logic
 	);	
 end entity;
-
+ 
 
 architecture immediate of ULA2YPbPr is
 
@@ -501,6 +504,18 @@ begin
 		slowdown14mhz <= out_slowdown;
 		speedup14mhz <= out_speedup;
 	end process;	
+	
+	-- generate auxilary clock
+	process (CLK112A)
+	variable counter:integer range 0 to 7;
+	begin
+		if rising_edge(CLK112A) then
+			if counter=0 then AUXCLOCK<='0'; end if;
+			if counter=4 then AUXCLOCK<='1'; end if;
+			counter := (counter+1) mod 8;
+		end if;	
+	end process;
+	
 
 end immediate;
 
